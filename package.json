@@ -21,7 +21,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://MujtabaJunaid.github.io/voice_chatbot",
+  "homepage": "https://mujtabajunaid.github.io/voice_chatbot/",
   "browserslist": {
     "production": [
       ">0.2%",
