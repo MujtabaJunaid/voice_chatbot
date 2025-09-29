@@ -10,7 +10,7 @@ import tempfile
 load_dotenv()
 
 app = FastAPI()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(api_key=os.getenv("groq_api_key"))
 chat_history = []
 
 @app.post("/chat/")
@@ -41,3 +41,4 @@ async def chat(audio: UploadFile, user_id: str = Form("default_user")):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     uvicorn.run(app, host="0.0.0.0", port=port)
+
