@@ -37,8 +37,7 @@ function App() {
       setIsConnected(false);
     };
 
-    ws.onerror = (error) => {
-      console.error('WebSocket error:', error);
+    ws.onerror = () => {
       setIsConnected(false);
     };
 
@@ -70,14 +69,14 @@ function App() {
         if (websocketRef.current && websocketRef.current.readyState === WebSocket.OPEN) {
           websocketRef.current.send(audioBlob);
         }
-        stream.getTracks().forEach(track => track.stop());
+        if (mediaRecorder.stream) {
+          mediaRecorder.stream.getTracks().forEach(track => track.stop());
+        }
       };
 
-      mediaRecorder.start(100);
+      mediaRecorder.start();
       setIsRecording(true);
-    } catch (error) {
-      console.error('Error starting recording:', error);
-    }
+    } catch (error) {}
   };
 
   const stopRecording = () => {
