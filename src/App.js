@@ -13,7 +13,7 @@ function App() {
   const audioRef = useRef(null);
 
   const connectWebSocket = () => {
-    const ws = new WebSocket('wss://your-app-name.herokuapp.com/ws');
+    const ws = new WebSocket('wss://https://voice-chatbot-c15b1b59ac65.herokuapp.com//ws');
     
     ws.onopen = () => {
       setIsConnected(true);
