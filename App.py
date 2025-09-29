@@ -22,7 +22,8 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 model = whisper.load_model("base")
-client = Groq()
+groq_api_key = os.getenv("groq_api_key")
+client = Groq(api_key=groq_api_key)
 chat_memory = []
 vad = webrtcvad.Vad(2)
 
@@ -85,3 +86,4 @@ async def websocket_endpoint(websocket: WebSocket):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     uvicorn.run(app, host="0.0.0.0", port=port)
+
