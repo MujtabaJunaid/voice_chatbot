@@ -3,7 +3,6 @@ uvicorn
 gunicorn
 python-multipart
 aiofiles
-openai
 groq
 gTTS
 python-dotenv
